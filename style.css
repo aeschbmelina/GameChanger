@@ -1,0 +1,420 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+    margin: 0;
+    padding: 0 40px;
+    padding-top: 200px;
+    font-family: 'Anton', sans-serif;
+    color: white;
+    background-color: black;
+    overflow-x: hidden; /* Verhindert seitliches Scrollen */
+    text-align: center;
+}
+
+.button {
+    display: none;
+    padding: 5px 20px;
+    margin-top: 15px;
+    color: rgb(185, 185, 185);
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid transparent; /* transparente Border als Ausgangspunkt */
+    font-size: 0.8em;
+    transition: border-color 0.3s; /* Transition für einen sanften Übergang hinzu */
+}
+
+.bild:hover .button {
+    display: inline-block; /* Zeige den Button an, wenn das Bild gehovert wird */
+}
+
+.text:hover .button {
+    display: inline-block; /* Zeige den Button an, wenn das Bild gehovert wird */
+}
+
+.button:hover {
+    border-color: white; /* Ändere die Border-Farbe beim Hover */
+    color: white;
+}
+
+
+#personen {
+    display: grid;
+    gap: 10px;
+}
+
+.person {
+    height: 90vh;
+    width: 100%;
+    position: relative;
+}
+
+.person div{
+    height: 100%;
+    position: absolute;
+
+    z-index: 0;
+    transition: 0.4s;
+    background-size: cover;
+    background-position: center;
+}
+
+.person div:hover span {
+    background: rgba(0,0,0,0.8);
+}
+
+.person span {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+
+    transition: 0.4s;
+    font-size: 1em;
+    line-height: 120%;
+    text-align: center;
+}
+
+.bild{
+    left: 0;
+    width: calc(40% - 5px);
+    border: solid black;
+    border-width: 0 10px 0 0;
+
+    background: url(Bilder/rachel-mcdermott-0fN7Fxv1eWA-unsplash.jpg);
+    color: rgba(0,0,0,0);
+    background-size: cover;
+    background-position: center;
+    transition: width 0.4s;
+    overflow: hidden;
+}
+
+/*damit der Text vor dem Video liegt*/
+.bild span {
+    position: relative;
+    z-index: 1;
+}
+
+.person .text {
+    position: absolute;
+    top: 0;
+    width: calc(60% - 5px);
+    border: solid black;
+    border-width: 0 0 0 10px;
+    background-size: cover;
+    background-position: center;
+    transition: width 0.4s;
+}
+
+.text span {
+    position: relative;
+    z-index: 1;
+}
+
+.bild:hover .text {
+    width: 100%;
+}
+
+
+.text{
+    right: 0;
+    width: calc(60% - 5px);
+    border: solid black;
+    border-width: 0 0 0 10px;
+
+    background: url(Bilder/tingey-injury-law-firm-nSpj-Z12lX0-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    transition: width 0.4s;
+    overflow: hidden;
+}
+
+.person:nth-child(3) .bild {
+    background: url(Bilder/danie-franco-A6O7pgc7vHg-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.person:nth-child(2) .text {
+    background: url(Bilder/markus-spiske-r1BS0pzlr1M-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.person:nth-child(4) .bild {
+    background: url(Bilder/jaden-barton-LkyPQBhB5HQ-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.person:nth-child(4) .text {
+    background: url(Bilder/noaa-3duT-54VuK8-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.bild:hover {
+    width: 100%;
+
+    z-index: 999;
+    color: white;
+}
+
+.text:hover {
+    width: 100%;
+}
+
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Verstecke das Video standardmäßig */
+}
+
+#video2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Verstecke das Video standardmäßig */
+}
+
+#video3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Verstecke das Video standardmäßig */
+}
+
+.sticky-menu {
+    position: fixed;
+    top: 0; /*Menüleiste bleibt oben*/
+    left: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1000;
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* Abstand zwischen den Elementen auf beiden Seiten */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 70px; /* Außenabstand hinzufügen, um die Breite zu beeinflussen */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 35px;
+    transition: color 0.3s, border-bottom 0.3s; /*  sanfter Übergangseffekt */
+    border-bottom: 2px solid transparent; /* Startet mit transparentem Unterstrich */
+}
+
+.menu a:hover {
+    color: #f2ff00;
+    border-bottom: 2px solid #f2ff00; /* Zeigt Unterstrich an, wenn Maus darüber ist */
+}
+
+#active {
+    color: #f2ff00;
+    border-bottom: 2px solid #f2ff00;
+}
+
+.Logo {
+    width: 150px;
+    order: 0; /* Setzt das Logo ganz links */
+    margin-right: auto;
+}
+
+.menu li {
+    display: inline; /* Elemente nebeneinander */
+}
+
+
+.menu li:not(:last-child) {
+    margin-right: 30px; /* Abstand zwischen den Navigationspunkten, außer beim letzten Punkt */
+}
+
+
+#Titel {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 50px;
+    padding-bottom: 100px;
+    position: relative; /* Hinzufügen einer relativen Position */
+
+    background-image: url(Bilder/olga-khatsko-QudikMUb9_8-unsplash.jpg);
+    overflow: hidden;
+}
+
+#Titel span {
+    display: block;
+
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    font-size: 100px;
+}
+
+
+
+#Menschen {
+    transform: translateX(150%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    color: #f2ff00;
+}
+
+#Menschen.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.2s;
+    font-size: 7em;
+}
+
+#Wandel {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s ease, transform 1s cubic-bezier(0.0005, 0.9997, 0.9998, 1);
+}
+
+#Wandel.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.5s;
+    font-size: 7em;
+}
+
+.Beschreibung {
+    display: inline-block;
+}
+
+@keyframes wordSwipe {
+    0%, 5% {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    10%, 85% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90%, 100% {
+        opacity: 0;
+        transform: translateY(5%);
+    }
+}
+
+#Menschen.slide-in,
+#Recht.slide-in,
+#Projekte.slide-in,
+#Aktivismus.slide-in {
+    display: inline-block;
+    animation: wordSwipe 5s ease-in-out infinite;
+}
+
+#Titel span {
+    display: none;
+}
+
+#Titel span.slide-in {
+    display: inline-block;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+
+
+    body {
+        padding-top: 200px;
+    } 
+
+    .menu li {
+        margin-right: 15px;
+    }
+
+    .Beschreibung {
+        display: inline-block;
+        font-size: 30px;
+    }
+
+    .bildtext {
+        font-size: 30px;
+        line-height: 120%;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .button {
+        font-size: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+    #Menschen.slide-in {
+        font-size: 6em;
+    }
+
+    #Wandel.slide-in {
+        font-size: 4em;
+    } 
+}
+
+
+@media only screen and (max-width: 750px) {
+
+    #Menschen.slide-in {
+        font-size: 5em;
+    }
+
+    #Wandel.slide-in {
+        font-size: 3em;
+    }
+
+
+    .menu a {
+        font-size: 18px;
+    }
+
+    .Logo {
+        width: 80px;
+    }
+
+    .bildtext {
+        font-size: 12px;
+        line-height: 120%;
+        overflow: hidden;
+    }
+
+    .Beschreibung {
+        display: inline-block;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .button {
+        font-size: 15px;
+    }
+
+}
+
+

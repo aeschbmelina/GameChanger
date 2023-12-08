@@ -1,0 +1,377 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.sticky-menu {
+    position: fixed;
+    top: 0; /*Menüleiste bleibt oben*/
+    left: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1000;
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* Abstand zwischen den Elementen auf beiden Seiten */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 70px; /* Außenabstand hinzufügen, um die Breite zu beeinflussen */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 35px;
+    transition: color 0.3s, border-bottom 0.3s; /*  sanfter Übergangseffekt */
+    border-bottom: 2px solid transparent; /* Startet mit transparentem Unterstrich */
+}
+
+.menu a:hover {
+    color: #f2ff00;
+    border-bottom: 2px solid #f2ff00; /* Zeigt Unterstrich an, wenn Maus darüber ist */
+}
+
+#active {
+    color: #f2ff00;
+    border-bottom: 2px solid #f2ff00;
+}
+
+.Logo {
+    width: 150px;
+    order: 0; /* Setzt das Logo ganz links */
+    margin-right: auto;
+}
+
+.menu li {
+    display: inline; /* Elemente nebeneinander */
+}
+
+
+.menu li:not(:last-child) {
+    margin-right: 30px; /* Füge Abstand zwischen den Navigationspunkten hinzu, außer beim letzten Punkt */
+}
+
+body {
+    margin: 0;
+    padding: 0 40px;
+    padding-top: 200px;
+
+    font-family: 'Anton', sans-serif;
+    color: white;
+    background-color: black;
+    overflow-x: hidden; /* Verhindert seitliches Scrollen */
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
+    gap: 0.5rem;
+    column-width: 50vw;
+    display: grid;
+}
+
+#grid-item1 {
+    background-image: url(Bilder/olga-khatsko-QudikMUb9_8-unsplash.jpg);
+    height: 70vh;
+    box-sizing: border-box;
+    min-width: 1fr;
+    padding-top: 5vh;
+    border-radius: 10%;
+    border-style: solid;
+    border-color: #f2ff00;
+}
+
+#Projekte {
+font-size: 7em;
+color: #f2ff00;
+}
+
+#Wandel {
+font-size: 5em;
+}
+
+#grid-item2 {
+    border-radius: 10%;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-width: 1fr;
+}
+
+.artikel {
+    grid-column: span 1;
+    position: relative;
+    height: 70vh;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Horizontal zentrieren */
+    align-items: center; /* Vertikal zentrieren */
+    box-sizing: border-box;
+    min-width: 1fr;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#grid-item3 {
+   background-image: url(Bilder/benjamin-jopen-p2GuLUu79Rg-unsplash.jpg);
+   background-size: cover;
+   background-position: center;
+   border-radius: 5%;
+   box-sizing: border-box;
+   min-width: 1fr;
+}
+
+#grid-item4 {
+    background-image: url(Bilder/markus-spiske-sFydXGrt5OA-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+    box-sizing: border-box;
+    min-width: 1fr;
+ }
+
+ #grid-item5 {
+    background-image: url(Bilder/eberhard-grossgasteiger-asfmq8Jm1Cc-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+    box-sizing: border-box;
+    min-width: 1fr;
+ }
+
+ #grid-item6 {
+    background-image: url(Bilder/ns--BVHKEy_3ok-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+    box-sizing: border-box;
+    min-width: 1fr;
+ }
+
+ #grid-item7 {
+    background-image: url(Bilder/evgeni-evgeniev-LPKk3wtkC-g-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+    box-sizing: border-box;
+    min-width: 1fr;
+ }
+
+ #grid-item8 {
+    background-image: url(Bilder/patrick-schneider-5xltWMpkN3E-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+    box-sizing: border-box;
+    min-width: 1fr;
+ }
+
+ #grid-item9 {
+    background-image: url(Bilder/claudio-schwarz-IA9ywYR8ibw-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+    box-sizing: border-box;
+    min-width: 1fr;
+ }
+
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.click-text {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 50px;
+    padding: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    line-height: 120%;
+    text-align: center;
+}
+
+
+.artikel:not(.visible) {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none; /* Klickereignisse für unsichtbare Elemente deaktivieren */
+}
+
+.artikel.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.artikel.expanded:not(#grid-item2):not(.visible) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.artikel:hover .overlay-text {
+    opacity: 1;
+}
+
+.artikel.expanded:hover .overlay-text {
+    opacity: 0;
+}
+
+.artikel.expanded .click-text {
+    display: block;
+}
+
+.artikel .click-text {
+    display: none;
+}
+
+
+
+.artikel .overlay-text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.artikel.expanded .overlay-text {
+    opacity: 1;
+}
+
+.artikel.expanded .click-text {
+    display: block;
+}
+
+
+
+
+.artikel::before,
+.artikel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Hintergrundfarbe für die Verdunkelung */
+   transition: opacity 0.3s ease;
+}
+
+.artikel:hover::before,
+.artikel:hover::after {
+    background-color: rgba(0, 0, 0, 0.5); /* Opazität ändern, wenn der Mauszeiger darüber schwebt */
+}
+
+.artikel.expanded::before,
+.artikel.expanded::after {
+    opacity: 0.9; /* Opazität ändern, wenn darauf geklickt wird */
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width: 1000px) {
+    #Projekte {
+        font-size: 7em;
+    }
+
+    #Wandel {
+        font-size: 5em;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+
+    .menu li {
+        margin-right: 15px;
+    }
+
+    #grid-item1 {
+        height: auto;
+        padding-top: 5em;
+        padding-bottom: 5em;
+        margin-bottom: 2em;
+        border-style: none;
+        min-height: 100px;
+    }
+    #grid-item2 {
+        height: auto;
+        border-radius: 0;
+    }
+
+    .artikel {
+        height: auto;
+        overflow: visible;
+        min-height: 500px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding-top: 80px;
+    }
+
+    .click-text {
+        font-size: 30px;
+    }
+
+}
+
+
+@media only screen and (max-width: 750px) {
+    #Projekte {
+        font-size: 5em;
+    }
+
+    #Wandel {
+        font-size: 3em;
+    }
+
+    body {
+        padding-top: 30px;
+    }
+
+    .menu a {
+        font-size: 18px;
+    } 
+
+    .Logo {
+        width: 80px;
+    }
+
+    #grid-item1 {
+        height: auto;
+        padding-top: 5em;
+        padding-bottom: 5em;
+        margin-bottom: 2em;
+        border-style: none;
+        min-height: 100px;
+    }
+    #grid-item2 {
+        height: auto;
+        border-radius: 0;
+    }
+
+    .artikel {
+        height: auto;
+        overflow: visible;
+        min-height: 300px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding-top: 80px;
+    }
+
+    .click-text {
+        font-size: 18px;
+    }
+}
